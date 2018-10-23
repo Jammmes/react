@@ -1,0 +1,32 @@
+{
+    "name": "react_app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack -d --watch",
+        "build": "webpack -p"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Jammmes/react.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Jammmes/react/issues"
+    },
+    "homepage": "https://github.com/Jammmes/react#readme",
+    "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.4",
+        "react-dom": "^16.5.2",
+        "webpack": "^4.22.0"
+    },
+    "dependencies": {
+        "react": "^16.5.2"
+    }
+}
