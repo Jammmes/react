@@ -8,22 +8,22 @@
  * @param function callback 
  */
 function loop(times = 0, callback = null) {
-  if ((times === 0) || callback == null) { return ''; }
-  for (let i = 0; i < times; i++) {
-    callback();
-  }
+    if ((times === 0) || callback == null) { return ''; }
+    for (let i = 0; i < times; i++) {
+        callback();
+    }
 }
 
 /* Задание 2 */
 
 var circle = {
-  type: 'circle',
-  radius: 10
+    type: 'circle',
+    radius: 10
 }
 
 var square = {
-  type: 'square',
-  width: 5
+    type: 'square',
+    width: 5
 }
 
 /**
@@ -32,24 +32,24 @@ var square = {
  * @param object figure 
  */
 function calculateArea(figure) {
-  var result = {};
-  var area = 0;
-  result.input = figure;
-  result.figure = figure.type;
+    var result = {};
+    var area = 0;
+    result.input = figure;
+    result.figure = figure.type;
 
-  switch (figure.type) {
-  case 'circle':
-    area = 2 * Math.PI * figure.radius * figure.radius;
-    break;
-  case 'square':
-    area = figure.width * figure.width
-    break;
-  default:
-    area = figure.width * figure.width
-    break;
-  }
-  result.area = area;
-  return result;
+    switch (figure.type) {
+        case 'circle':
+            area = 2 * Math.PI * figure.radius * figure.radius;
+            break;
+        case 'square':
+            area = figure.width * figure.width
+            break;
+        default:
+            area = figure.width * figure.width
+            break;
+    }
+    result.area = area;
+    return result;
 }
 
 
@@ -59,120 +59,120 @@ function calculateArea(figure) {
  * Общий класс - Человек
  */
 class Human {
-  constructor(name, age, dateOfBirth) {
-    this.name = name;
-    this.age = age;
-    this.dateOfBirth = dateOfBirth;
-  }
+    constructor(name, age, dateOfBirth) {
+        this.name = name;
+        this.age = age;
+        this.dateOfBirth = dateOfBirth;
+    }
 
-  displayInfo() {
-    return `Name: ${this.name}, Age: ${this.age}, BDay:${this.dateOfBirth}`;
-  }
+    displayInfo() {
+        return `Name: ${this.name}, Age: ${this.age}, BDay:${this.dateOfBirth}`;
+    }
 }
 
 /**
  * Класс - Сотрудник, наследник класса Человек
  */
 class Employee extends Human {
-  constructor(name, age, dateOfBirth, salary, department) {
-    super(name, age, dateOfBirth);
-    this.salary = salary;
-    this.department = department;
-  }
+    constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth);
+        this.salary = salary;
+        this.department = department;
+    }
 
-  displayInfo() {
-    return super.displayInfo() + `,
+    displayInfo() {
+        return super.displayInfo() + `,
         Salary: ${this.salary}, Dpt: ${this.department}`;
-  }
+    }
 }
 
 /**
  * Класс - Менджер, наследник класса Сотрудник
  */
 class Manager extends Employee {
-  constructor(name, age, dateOfBirth, salary, department) {
-    super(name, age, dateOfBirth, salary, department);
-    this.devList = [];
-  }
-
-  /**
-   * Метод добавления разрабочика менеджеру
-   * 
-   * @param object developer 
-   */
-  addDevelop(developer) {
-    this.devList.push(developer);
-  }
-
-  /**
-   * Метод удаления разработчика из списка менеджера
-   * 
-   * @param object developer 
-   */
-  removeDeveloper(developer) {
-    var idx = -1;
-
-    this.devList.forEach((element, index) => {
-      for (const key in element) {
-        const prop = element[key];
-        if (developer.name == prop) {
-          idx = index;
-        }
-      }
-    });
-
-    if (idx >= 0) {
-      this.devList.splice(idx, 1);
+    constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth, salary, department);
+        this.devList = [];
     }
-  }
 
-  displayInfo() {
-    var developers = '';
+    /**
+     * Метод добавления разрабочика менеджеру
+     * 
+     * @param object developer 
+     */
+    addDevelop(developer) {
+        this.devList.push(developer);
+    }
 
-    this.devList.forEach((element, idx) => {
-      if (idx < this.devList.length - 1) {
-        developers += element.name + ', ';
-      } else {
-        developers += element.name;
-      }
-    });
+    /**
+     * Метод удаления разработчика из списка менеджера
+     * 
+     * @param object developer 
+     */
+    removeDeveloper(developer) {
+        var idx = -1;
 
-    return super.displayInfo() + `,
+        this.devList.forEach((element, index) => {
+            for (const key in element) {
+                const prop = element[key];
+                if (developer.name == prop) {
+                    idx = index;
+                }
+            }
+        });
+
+        if (idx >= 0) {
+            this.devList.splice(idx, 1);
+        }
+    }
+
+    displayInfo() {
+        var developers = '';
+
+        this.devList.forEach((element, idx) => {
+            if (idx < this.devList.length - 1) {
+                developers += element.name + ', ';
+            } else {
+                developers += element.name;
+            }
+        });
+
+        return super.displayInfo() + `,
         Developers: ${developers},
         Type: Manager`;
-  }
+    }
 }
 
 /**
  * Класс Разработчик, наследник класса Сотрудник
  */
 class Developer extends Employee {
-  constructor(name, age, dateOfBirth, salary, department) {
-    super(name, age, dateOfBirth, salary, department);
-    this.manager = 'none';
-  }
+    constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth, salary, department);
+        this.manager = 'none';
+    }
 
-  /**
-   * Метод возвращающий менеджера, относящегося к разработчику
-   */
-  getManagerName() {
-    return this.manager;
-  }
+    /**
+     * Метод возвращающий менеджера, относящегося к разработчику
+     */
+    getManagerName() {
+        return this.manager;
+    }
 
-  /**
-   * Метод устанавливающий менеджера разработчику
-   * 
-   * @param object manager 
-   */
-  setManager(manager) {
-    this.manager = manager;
-  }
+    /**
+     * Метод устанавливающий менеджера разработчику
+     * 
+     * @param object manager 
+     */
+    setManager(manager) {
+        this.manager = manager;
+    }
 
-  displayInfo() {
-    return super.displayInfo() + `,
+    displayInfo() {
+        return super.displayInfo() + `,
         Manager: ${this.manager.name},
         Type: Developer`;
-  }
+    }
 }
 
 // var eug = new Developer('Eugen', '38', '15.03.1980', '100000', 'Frontend');
@@ -194,13 +194,13 @@ class Developer extends Employee {
  *  Генератор
  */
 function* generatorData() {
-  var result = {};
+    var result = {};
 
-  result.name = yield;
-  result.age = yield;
-  result.proffession = yield;
+    result.name = yield;
+    result.age = yield;
+    result.proffession = yield;
 
-  yield console.log(result);
+    yield console.log(result);
 }
 
 let gen = generatorData();
@@ -218,42 +218,42 @@ gen.next(prompt('Enter yor proffession'));
  * @param int id 
  */
 function getProimse(id) {
-  return new Promise((resolve, reject) => {
-    var url = 'https://jsonplaceholder.typicode.com/users/' + id;
-    var xhr = new XMLHttpRequest();
+    return new Promise((resolve, reject) => {
+        var url = 'https://jsonplaceholder.typicode.com/users/' + id;
+        var xhr = new XMLHttpRequest();
 
-    xhr.open('get', url, true);
-    xhr.send();
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          resolve(JSON.parse(xhr.responseText));
-        } else {
-          reject(xhr.statusText);
+        xhr.open('get', url, true);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    resolve(JSON.parse(xhr.responseText));
+                } else {
+                    reject(xhr.statusText);
+                }
+            }
         }
-      }
-    }
-  })
+    })
 }
 
 /**
  * Получение данных из промисов
  */
 function getData() {
-  var count = 10;
-  var arrData = [];
-  var arrPromises = [];
-  // соберем промисы в массив
-  for (let i = 1; i <= count; i++) {
-    arrPromises.push(getProimse(i));
-  }
-  // соберем данные из промисов в другой массив
-  Promise.all(arrPromises).then(
-    loadData => arrData.push(loadData),
-    err => console.log(err)
-  );
+    var count = 10;
+    var arrData = [];
+    var arrPromises = [];
+    // соберем промисы в массив
+    for (let i = 1; i <= count; i++) {
+        arrPromises.push(getProimse(i));
+    }
+    // соберем данные из промисов в другой массив
+    Promise.all(arrPromises).then(
+        loadData => arrData.push(loadData),
+        err => console.log(err)
+    );
 
-  return arrData;
+    return arrData;
 }
 
 console.log(getData());
