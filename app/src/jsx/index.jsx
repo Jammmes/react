@@ -11,13 +11,12 @@ class App extends React.Component{
     render(){
         return( 
         <div>
-        <DevInfoComponent />
-        <p> Hello React !!! </p>
-                {devList.forEach((item) => <div><p>{item.name}</p></div>
+            <p> Hello React !!! </p>
+            {this.props.devlist.map((item) => <DevInfoComponent key = {item.id} dev = {item} />
             )}
         </div>
         )
     }
 }
 
-render (<App/>, document.getElementById('app'));
+render (<App devlist = {devList}/>, document.getElementById('app'));

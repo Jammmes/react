@@ -15,7 +15,12 @@ class DevInfoComponent extends React.Component{
     render(){
         return (
             <div>
-                Likes: <span>{this.state.likesCount}</span>
+                <div>
+                Name: {this.props.dev.name}
+                Surname: {this.props.dev.surname}
+                Lastname: {this.props.dev.lastname}
+                </div>
+                <span>{this.state.likesCount}</span>
                 <div>
                     <button onClick = {this.onLike}>Like Me</button>
                 </div>
