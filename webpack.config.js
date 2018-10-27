@@ -5,23 +5,41 @@ const BUILD_DIR = path.resolve(__dirname, 'app/dist');
 const APP_DIR = path.resolve(__dirname, 'app/src');
 
 var config = {
-    entry: APP_DIR + '/app/index.jsx',
-    output: {
-        path: BUILD_DIR,
-        filename: 'build.js'
-    },
-    module: {
-        rules: [{
+  entry: APP_DIR + '/index.js',
+  output: {
+    path: BUILD_DIR,
+    filename: 'build.js'
+  },
+  module: {
+    rules: [
+        {
             test: /\.jsx?/,
             use: {
-                loader: 'babel-loader',
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread']
+            }
+      }
+    },
+    {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+    },
+    {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+            {
+                loader: 'file-loader',
                 options: {
-                    presets: ['@babel/preset-env'],
-                    plugins: ['@babel/plugin-proposal-object-rest-spread']
+                    outputPath: 'images/'
                 }
             }
-        }]
+        ]
     }
+    ]
+  }
+
 };
 
 module.exports = config;

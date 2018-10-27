@@ -1,0 +1,12 @@
+.ImgList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ImgList__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
