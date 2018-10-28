@@ -18,7 +18,8 @@ class ClickCounter extends React.Component {
         this.setState({ count: newCount });
     }
 
-    onDecrease() {
+    onDecrease(event) {
+        event.preventDefault();
         let newCount = this.state.count - 1;
         this.setState({ count: (newCount < 0) ? 0 : newCount });
     }
@@ -26,9 +27,7 @@ class ClickCounter extends React.Component {
     render() {
         return (
             <div className="clickCounter">
-                <button className="clickCounter__button" onClick={this.onIncrease}>+</button>
-                <button className="clickCounter__button" onClick={this.onDecrease}>-</button>
-                <div className="clickCounter__count">{this.state.count}</div>
+                <div className="clickCounter__count" onClick = {this.onIncrease} onContextMenu = {this.onDecrease}>{this.state.count}</div>
             </div>
         )
     }

@@ -11,7 +11,7 @@ class ImgCard extends React.Component {
     render() {
         return (
             <div className="ImgCard">
-                <img className="ImgCard__img" src={'../src/assets/img/' + this.props.img.img} alt = "..."/>
+                <img className="ImgCard__img" src={'../src/assets/img/' + this.props.item.img} alt = "..."/>
                 <div className="ImgCard__count">
                     <ClickCounter />
                 </div>

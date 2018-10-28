@@ -1,8 +1,9 @@
 .ImgCard {
     margin: 20px;
     box-sizing: border-box;
-    border: 1px solid dimgray;
+    border: none;
     border-radius: 5px;
+    position: relative;
 }
 
 .ImgCard__img {
@@ -10,4 +11,10 @@
     height: 300px;
     overflow: hidden;
     object-fit: cover;
+}
+
+.ImgCard__count {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }

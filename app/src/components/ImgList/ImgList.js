@@ -14,7 +14,7 @@ class ImgList extends React.Component {
             <div className="ImgList">
                 <h1 className="ImgList__title">{this.props.title}</h1>
                 <div className="ImgList__list">
-                    {this.props.items.map((item) => <ImgCard key = {item.id} img = {item} />
+                    {this.props.items.map((item) => <ImgCard key = {item.id} item = {item} />
                     )}
                 </div>
             </div>
