@@ -12,15 +12,29 @@ var config = {
   },
   module: {
     rules: [{
-      test: /\.jsx?/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-          plugins: ['@babel/plugin-proposal-object-rest-spread']
+        test: /\.jsx?/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-object-rest-spread']
+          }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            outputPath: 'images/'
+          }
+        }]
       }
-    }]
+    ]
   }
 };
 
