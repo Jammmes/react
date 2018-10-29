@@ -1,21 +1,18 @@
 import React from 'react';
-import HeaderBlock from './header/HeaderBlock.jsx';
-//import MainBlock from './main/MainBlock.jsx';
-//import FooterBlock from './footer/FooterBlock.jsx';
+import HeaderContainer from './header/HeaderContainer.jsx';
+import MainContainer from './main/MainContainer.jsx';
+import FooterBlock from './footer/FooterBlock.jsx';
 
 class Container extends React.Component {
     render() {
         return (
             <div className = "container">
-                <HeaderBlock headerBlock={this.props.data.headerBlock} />
+                <HeaderContainer headerContainer={this.props.data.headerContainer} />
+                <MainContainer mainContainer={this.props.data.mainContainer} />
+                <FooterBlock footerBlock={this.props.data.footerBlock} />
             </div>
         )
     }
 }
 
 export default Container;
-
-/*
-    <MainBlock data = {this.props.data.mainBlock} />
-    <FooterBlock data = {this.props.data.footerBlock} />
-*/

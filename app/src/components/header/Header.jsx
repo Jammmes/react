@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import SignUp from './SignUp.jsx';
 import { Row } from 'reactstrap';
 import { Col } from 'reactstrap';
 
@@ -13,7 +13,7 @@ class Header extends React.Component {
                     <h1> {this.props.header.title} </h1>
                 </Col>
                 <Col xs={4} className= "d-flex justify-content-end align-items-center">
-                    <Button href ="#">Sign Up</Button>
+                    <SignUp buttonLabel = "Sign Up"/>
                 </Col>
                 <hr className="my-2" />
             </Row>
