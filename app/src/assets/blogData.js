@@ -36,7 +36,7 @@ const blogData = {
           {
             "name": "Health",
             "link": "#"
-          }, ,
+          },
           {
             "name": "Politics",
             "link": "#"
