@@ -1,6 +1,6 @@
 import React from 'react';
 import './ImgCard.css';
-import ClickCounter from '../ClickCounter/ClickCounter'; 
+import ClickCounter from '../ClickCounter/ClickCounter.jsx'; 
 
 /* 
  * Component ImgCard, use internal Component ClickCounter 
@@ -11,7 +11,7 @@ class ImgCard extends React.Component {
     render() {
         return (
             <div className="ImgCard">
-                <img className="ImgCard__img" src={'../src/assets/img/' + this.props.item.img} alt = "..."/>
+                <img className="ImgCard__img" src={'img/' + this.props.item.img} alt = "..."/>
                 <div className="ImgCard__count">
                     <ClickCounter />
                 </div>

@@ -1,10 +1,10 @@
-.ImgList {
+.ImgCatalog {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.ImgList__list {
+.ImgCatalog__list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
