@@ -10,3 +10,8 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.ImgCatalog__title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #00000040;
+}

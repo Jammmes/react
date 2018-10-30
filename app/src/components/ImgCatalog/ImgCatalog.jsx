@@ -9,10 +9,18 @@ import ImgCard from '../ImgCard/ImgCard.jsx';
  * @props - object array 'items', contains 'id', 'img' parameters
  */
 class ImgCatalog extends React.Component {
+    constructor(props){
+        super(props);
+
+
+    }
+
+
     render() {
         return (
             <div className="ImgCatalog">
                 <h1 className="ImgCatalog__title">{this.props.title}</h1>
+                <hr />
                 <div className="ImgCatalog__list">
                     {this.props.imageList.map((item) => <ImgCard key = {item.id} item = {item} />
                     )}
