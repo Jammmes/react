@@ -9,11 +9,15 @@ import ClickCounter from '../ClickCounter/ClickCounter.jsx';
  * */
 class ImgCard extends React.Component {
     render() {
+       // console.log(this.props.onIncrease);
         return (
             <div className="ImgCard">
                 <img className="ImgCard__img" src={'img/' + this.props.item.img} alt = "..."/>
                 <div className="ImgCard__count">
-                    <ClickCounter />
+                    <ClickCounter onIncrease={this.props.onIncrease}
+                        onDecrease={this.props.onDecrease} 
+                        count = {this.props.item.count}
+                        id={this.props.item.id}/>
                 </div>
             </div>
         );

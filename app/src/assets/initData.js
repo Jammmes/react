@@ -1,4 +1,4 @@
-const imageList = [{
+const initData = [{
     id: "1",
     img: "bg.jpg"
   },
@@ -36,4 +36,4 @@ const imageList = [{
   }
 ]
 
-export default imageList;
+export default initData

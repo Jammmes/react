@@ -6,31 +6,21 @@ import './ClickCounter.less';
  * 
  */
 class ClickCounter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {count : 0};
-        this.onIncrease = this.onIncrease.bind(this);
-        this.onDecrease = this.onDecrease.bind(this);
-    }
-
-    onIncrease() {
-        let newCount = this.state.count + 1;
-        this.setState({ count: newCount });
-    }
-
-    onDecrease(event) {
-        event.preventDefault();
-        let newCount = this.state.count - 1;
-        this.setState({ count: (newCount < 0) ? 0 : newCount });
-    }
-
     render() {
+        const {id,count,onIncrease,onDecrease} = this.props;
         return (
             <div className="clickCounter">
-                <div className="clickCounter__count" onClick = {this.onIncrease} onContextMenu = {this.onDecrease}>{this.state.count}</div>
+                {/* <div className="clickCounter__count" onClick={onIncrease(id, count + 1)} onContextMenu = {onDecrease (env,id, count - 1)}>{count}</div> */}
             </div>
         )
     }
 }
+
+// const ClickCounter = ({id,onIncrease,onDecrease,count}) =>
+
+//     <div className="clickCounter">
+//         <div className="clickCounter__count" onClick={()=> onIncrease(id,count + 1)} onContextMenu={()=>onDecrease(id,count - 1)}>{count}</div>
+//     </div>
+
 
 export default ClickCounter;
