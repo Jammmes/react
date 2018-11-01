@@ -46,7 +46,8 @@ const blogData = {
       "hero": {
         "title": "Title of a longer featured blog post",
         "text": "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-        "continue": "continue ..."
+        "collapseCaption": "continue ...",
+        "mainText": "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident. Anim pariatur cliche reprehenderit,enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident. Anim pariatur cliche reprehenderit,enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident. Anim pariatur cliche reprehenderit,enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident. Anim pariatur cliche reprehenderit,enim eiusmod high life accusamus terry richardson ad squid.Nihil anim keffiyeh helvetica, craft beer labore wes anderson crednesciunt sapiente ea proident"
       }
     },
     "mainContainer": {
@@ -61,10 +62,8 @@ const blogData = {
               "date": "01.10.10.",
               "cardText": "This is a wider card with supporting text below as a natural lead-in to additional content.",
               "img": "https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180",
-              "cardLink": {
-                "name": "continue reading",
-                "link": "#"
-              }
+              "collapseCaption": "continue reading ...",
+              "mainText": "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents."
             },
             {
               "id": "2",
@@ -74,10 +73,8 @@ const blogData = {
               "date": "06.10.10.",
               "cardText": "This is a wider card with supporting text below as a natural lead-in to additional content.",
               "img": "https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180",
-              "cardLink": {
-                "name": "continue reading",
-                "link": "#"
-              }
+              "collapseCaption": "continue reading ...",
+              "mainText": "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents. Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents."
             }
           ]
         }

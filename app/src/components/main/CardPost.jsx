@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col, Card, CardBody, CardTitle, CardText, CardLink, CardImg } from 'reactstrap';
+import { Row, Col, Card, CardBody, CardTitle, CardText, CardImg, Button } from 'reactstrap';
+import CollapseText from '../utils/CollapseText.jsx'
 
 class CardPost extends React.Component {
     render() {
@@ -9,13 +10,20 @@ class CardPost extends React.Component {
                     <Row>
                         <Col>
                             <CardBody>
-                                <CardTitle className={"text-" + this.props.cardPost.topicColor}>{this.props.cardPost.topic}</CardTitle>
+                                <Row>
+                                    <Col>
+                                        <CardTitle className={"text-" + this.props.cardPost.topicColor}>{this.props.cardPost.topic}</CardTitle>
+                                    </Col>
+                                    <Col className="d-flex justify-content-end align-items-center">
+                                        <Button color="danger" size="sm">Delete post</Button>
+                                    </Col>
+                                </Row>
                                 <h3>{this.props.cardPost.title}</h3>
                                     <CardText>
                                         <small className="text-muted">Date: {this.props.cardPost.date}</small>
                                     </CardText>
                                 <CardText>{this.props.cardPost.cardText}</CardText>
-                                <CardLink href={this.props.cardPost.cardLink.link}>{this.props.cardPost.cardLink.name}</CardLink>
+                                <CollapseText caption={this.props.cardPost.collapseCaption} text={this.props.cardPost.mainText} />
                             </CardBody>
                         </Col>
                         <Col>

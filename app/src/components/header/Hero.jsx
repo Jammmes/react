@@ -1,5 +1,6 @@
 import React from 'react';
 import { Jumbotron } from 'reactstrap';
+import CollapseText from '../utils/CollapseText.jsx'
 
 class Hero extends React.Component {
     render() {
@@ -9,7 +10,7 @@ class Hero extends React.Component {
                 <p className="lead">{this.props.hero.text}</p>
                 <hr className="my-2" />
                 <p className="lead">
-                    <a href="#" className= "text-white font-weight-bold">{this.props.hero.continue}</a>
+                    <CollapseText className="text-white font-weight-bold" caption={this.props.hero.collapseCaption} text = {this.props.hero.mainText}/>
                 </p>
             </Jumbotron>
         )

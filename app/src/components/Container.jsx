@@ -5,11 +5,12 @@ import FooterBlock from './footer/FooterBlock.jsx';
 
 class Container extends React.Component {
     render() {
+        const { data } = this.props;
         return (
             <div className = "container">
-                <HeaderContainer headerContainer={this.props.data.headerContainer} />
-                <MainContainer mainContainer={this.props.data.mainContainer} />
-                <FooterBlock footerBlock={this.props.data.footerBlock} />
+                <HeaderContainer headerContainer={data.headerContainer} />
+                <MainContainer mainContainer={data.mainContainer} />
+                <FooterBlock footerBlock={data.footerBlock} />
             </div>
         )
     }
