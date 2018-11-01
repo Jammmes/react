@@ -20,7 +20,7 @@ class App extends React.Component {
     const imageList = this.state.imageList.map((item) =>
     (item.id !== id) ? item : {...item, "count" : count}
     )
-    this.setState({imageList});
+    this.setState({ imageList });
   }
 
   onDecrease(event,id,count) {
@@ -32,10 +32,13 @@ class App extends React.Component {
   }
 
   render() {
+    const imageList = this.state.imageList;
+    const sortFunction = (a, b) => (a.count > b.count) ? -1 : 1;
+    const sortedList = [...imageList].sort(sortFunction); 
     return ( 
     <div className = "App" >
-        <ImgCatalog imageList={this.state.imageList}
-          title="Developers list"
+        <ImgCatalog imageList = {sortedList}
+          title = "Developers list"
           onIncrease = {this.onIncrease}
           onDecrease = {this.onDecrease} />
     </div>

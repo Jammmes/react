@@ -12,7 +12,7 @@ const initData = [{
   },
   {
     id: "4",
-    img: "jc.jpg"
+    img: "av.jpg"
   },
   {
     id: "5",
@@ -28,12 +28,26 @@ const initData = [{
   },
   {
     id: "8",
-    img: "pd.jpg"
+    img: "ek.jpg"
   },
   {
     id: "9",
-    img: "sj.jpg"
-  }
+    img: "lt.jpg"
+  },
+  {
+    id: "10",
+    img: "sb.jpg"
+  },
+  {
+    id: "11",
+    img: "bn.jpg"
+  },
+  {
+    id: "12",
+    img: "jc.jpg"
+  },
+
+
 ]
 
 export default initData

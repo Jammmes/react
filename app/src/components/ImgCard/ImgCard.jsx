@@ -1,6 +1,6 @@
 import React from 'react';
 import './ImgCard.less';
-import ClickCounter from '../ClickCounter/ClickCounter.jsx'; 
+
 
 /* 
  * Component ImgCard, use internal Component ClickCounter 
@@ -9,15 +9,13 @@ import ClickCounter from '../ClickCounter/ClickCounter.jsx';
  * */
 class ImgCard extends React.Component {
     render() {
-       // console.log(this.props.onIncrease);
+        const {onIncrease,onDecrease,item} = this.props;
         return (
-            <div className="ImgCard">
-                <img className="ImgCard__img" src={'img/' + this.props.item.img} alt = "..."/>
-                <div className="ImgCard__count">
-                    <ClickCounter onIncrease={this.props.onIncrease}
-                        onDecrease={this.props.onDecrease} 
-                        count = {this.props.item.count}
-                        id={this.props.item.id}/>
+            <div className="imgCard" onClick = {() => {onIncrease(item.id, item.count + 1)}}
+                onContextMenu={() => onDecrease(event, item.id, ((item.count - 1) < 0) ? 0 : item.count - 1)}>
+                <img className="imgCard__img" src={'img/' + this.props.item.img} alt = "..."/>
+                <div className="imgCard__count">
+                    <div className = "clickCounter">{this.props.item.count}</div>
                 </div>
             </div>
         );

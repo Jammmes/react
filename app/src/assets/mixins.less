@@ -10,6 +10,7 @@
     @content();
   }
 }
+
 .respondTo(@_media) when (@_media ="tablets") {
   @media all and (min-width: 768px) and (max-width: 991px) {
     @content();
@@ -34,7 +35,20 @@
   }
 }
 
+.transform {
+  animation-name: transform;
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+}
 
+@keyframes transform {
+  from {
+    transform: scale(0.8, 0.7) translateX(30px);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
 
 /*
 @include respondTo(lg-desktops) {}
