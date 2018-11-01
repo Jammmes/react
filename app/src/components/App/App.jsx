@@ -1,6 +1,6 @@
 import React from 'react';
 import ImgCatalog from '../ImgCatalog/ImgCatalog.jsx';
-import './App.css';
+import './App.less';
 
 class App extends React.Component {
   render() {

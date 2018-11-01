@@ -1,5 +1,5 @@
 import React from 'react'
-import './ClickCounter.css';
+import './ClickCounter.less';
 
 /**
  * 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './ImgCard.css';
+import './ImgCard.less';
 import ClickCounter from '../ClickCounter/ClickCounter.jsx'; 
 
 /* 

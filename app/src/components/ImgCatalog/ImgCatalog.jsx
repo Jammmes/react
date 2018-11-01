@@ -1,5 +1,5 @@
 import React from 'react';
-import './ImgCatalog.css';
+import './ImgCatalog.less';
 import ImgCard from '../ImgCard/ImgCard.jsx';
 
 /**
@@ -11,10 +11,15 @@ import ImgCard from '../ImgCard/ImgCard.jsx';
 class ImgCatalog extends React.Component {
     constructor(props){
         super(props);
-
-
+        let newArray = props.imageList.map((item) => (
+            {"id":item.id,
+            "img":item.img,
+            "count":0,
+            "top":0,
+            "left":0
+            })
+        )
     }
-
 
     render() {
         return (
