@@ -3,7 +3,7 @@ import './ImgCard.less';
 
 
 /* 
- * Component ImgCard, use internal Component ClickCounter 
+ * Component ImgCard
  * @props - object has 'id','img' parameters
  *   
  * */

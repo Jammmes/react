@@ -1,37 +1,34 @@
 //MIXINS
-.respondTo(@_media) when (@_media ="phones") {
-  @media all and (max-width: 575px) {
-    @content();
+.respond-to(@device, @content) {
+  & when (@device =phones) {
+    @media all and (max-width: 479px) {
+      @content();
+    }
   }
-}
-
-.respondTo(@_media) when (@_media ="wide-phones") {
-  @media all and (min-width: 576px) and (max-width: 767px) {
-    @content();
+  & when (@device =wide-phones) {
+    @media all and (min-width: 480px) and (max-width: 767px) {
+      @content();
+    }
   }
-}
-
-.respondTo(@_media) when (@_media ="tablets") {
-  @media all and (min-width: 768px) and (max-width: 991px) {
-    @content();
+  & when (@device =tablets) {
+    @media all and (min-width: 768px) and (max-width: 991px) {
+      @content();
+    }
   }
-}
-
-.respondTo(@_media) when (@_media ="small-desktops") {
-  @media all and (min-width: 992px) and (max-width: 1199px) {
-    @content();
+  & when (@device =small-desktops) {
+    @media all and (min-width: 992px) and (max-width: 1199px) {
+      @content();
+    }
   }
-}
-
-.respondTo(@_media) when (@_media ="lg-desktops") {
-  @media all and (min-width: 1200px) and (max-width: 1440px) {
-    @content();
+  & when (@device =lg-desktops) {
+    @media all and (min-width: 1200px) and (max-width: 1440px) {
+      @content();
+    }
   }
-}
-
-.respondTo(@_media) when (@_media ="xlg-desktops") {
-  @media all and (min-width: 1441px) and (max-width: 1920px) {
-    @content();
+  & when (@device =xlg-desktops) {
+    @media all and (min-width: 1441px) {
+      @content();
+    }
   }
 }
 
@@ -51,8 +48,10 @@
 }
 
 /*
-@include respondTo(lg-desktops) {}
-@include respondTo(small-desktops) {}
-@include respondTo(tablets) {}
- @include respondTo(wide-phones) {}
+	.respond-to(small-desktops, {
+    });
+	.respond-to(tablets, {
+    });
+	.respond-to(wide-phones, {
+    });
 */

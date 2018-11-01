@@ -20,10 +20,15 @@
 }
 
 .imgCard__img {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
   vertical-align: bottom;
+  .respond-to(small-desktops, {
+    width: 350px;
+    height: 350px;
+  }
+  );
 }
 
 .imgCard__count {
