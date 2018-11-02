@@ -1,6 +1,5 @@
 import React from 'react';
 import { Nav, NavItem} from 'reactstrap';
-
 class FooterBlock extends React.Component {
     render() {
         return (

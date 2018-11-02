@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 class AsideArchive extends React.Component {
     render() {
         return (

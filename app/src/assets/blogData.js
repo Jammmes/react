@@ -51,10 +51,10 @@ const blogData = {
       }
     },
     "mainContainer": {
-      "title": "See all posts here",
+      "title": "See all posts here:",
       "mainBlock": {
-        "cardBlock": {
-          "cards": [{
+        "postBlock": {
+          "posts": [{
               "id": "1",
               "topic": "world",
               "topicColor": "danger",

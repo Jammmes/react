@@ -9,9 +9,9 @@ class Hero extends React.Component {
                 <h1 className="display-3">{this.props.hero.title}</h1>
                 <p className="lead">{this.props.hero.text}</p>
                 <hr className="my-2" />
-                <p className="lead">
+                <div className="lead">
                     <CollapseText className="text-white font-weight-bold" caption={this.props.hero.collapseCaption} text = {this.props.hero.mainText}/>
-                </p>
+                </div>
             </Jumbotron>
         )
     }
