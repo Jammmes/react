@@ -13,7 +13,6 @@ class ImgCatalog extends React.Component {
         return (
             <div className="ImgCatalog">
                 <h1 className="ImgCatalog__title">{this.props.title}</h1>
-                <hr />
                 <div className="ImgCatalog__list">
                     {this.props.imageList.map((item) => (
                     <ImgCard key = {item.id}

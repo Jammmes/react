@@ -38,7 +38,7 @@ class App extends React.Component {
     return ( 
     <div className = "App" >
         <ImgCatalog imageList = {sortedList}
-          title = "Developers list"
+          title = "React application - Image list"
           onIncrease = {this.onIncrease}
           onDecrease = {this.onDecrease} />
     </div>

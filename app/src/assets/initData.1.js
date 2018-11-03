@@ -45,7 +45,7 @@ const initData = [{
   {
     id: "12",
     img: "jc.jpg"
-  }
+  },
 
 
 ]
