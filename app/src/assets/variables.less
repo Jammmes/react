@@ -1,6 +1,6 @@
 // Mixins
 .respond-to(@device, @content) {
-  & when (@device =phones) {
+  & when (@device = phones) {
     @media all and (max-width: 479px) {
       @content();
     }

@@ -7,24 +7,28 @@
 
 .ImgCatalog__list {
   display: grid;
-  grid-template-columns: repeat( 3, 430px);
+  grid-template-columns: repeat( 3, 280px);
   margin: 0 auto;
   grid-gap: 5px;
   justify-items: center;
   .respond-to(lg-desktops, {
-    grid-template-columns: repeat( 3, 280px);
+    grid-template-columns: repeat( 3, 275px);
   }
   );
   .respond-to(small-desktops, {
-    grid-template-columns: repeat( 3, 280px);
+    grid-template-columns: repeat( 3, 270px);
   }
   );
   .respond-to(tablets, {
-    grid-template-columns: repeat( 3, 280px);
+    grid-template-columns: repeat( 3, 265px);
   }
   );
   .respond-to(wide-phones, {
     grid-template-columns: repeat( 3, 265px);
+  }
+  );
+  .respond-to(phones, {
+    grid-template-columns: repeat( 3, 100px);
   }
   );
 }
