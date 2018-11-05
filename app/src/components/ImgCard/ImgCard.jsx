@@ -13,9 +13,9 @@ class ImgCard extends React.Component {
         return (
             <div className="imgCard" onClick = {() => {onIncrease(item.id, item.count + 1)}}
                 onContextMenu={() => onDecrease(event, item.id, ((item.count - 1) < 0) ? 0 : item.count - 1)}>
-                <img className="imgCard__img" src={'img/' + this.props.item.img} alt = "..."/>
+                <img className="imgCard__img" src={'img/' + item.img} alt = "..."/>
                 <div className="imgCard__count">
-                    <div className = "clickCounter">{this.props.item.count}</div>
+                    <div className = "clickCounter">{item.count}</div>
                 </div>
             </div>
         );
