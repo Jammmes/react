@@ -7,11 +7,12 @@ const APP_DIR = path.resolve(__dirname, 'app/src');
 
 var config = {
   entry: {
+    vendors: APP_DIR + '/vendors.js',
     app: APP_DIR + '/index.jsx'
   },
   output: {
     path: BUILD_DIR,
-    filename: 'build_.js'
+    filename: '[name].js'
   },
   module: {
     rules: [{

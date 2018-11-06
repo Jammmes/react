@@ -5,9 +5,6 @@ import Layout from './layouts/Layout';
 import Main from './pages/Main';
 import PageNotFound from './pages/PageNotFound';
 import Posts from './pages/Posts';
-import 'bootstrap/dist/css/bootstrap.css';
-
-
 
 
 const app = document.getElementById('app');
