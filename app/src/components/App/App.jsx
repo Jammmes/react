@@ -5,10 +5,7 @@ import './App.less';
 class App extends React.Component {
   constructor(props){
     super(props);
-    let count = 0;
-    let initData = this.props.initData.map((item) => (
-      { ...item, count})
-    )
+    let initData = this.props.initData
     this.state = {imageList : initData}
     this.onIncrease = this.onIncrease.bind(this);
     this.onDecrease = this.onDecrease.bind(this);
