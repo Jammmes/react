@@ -1,4 +1,5 @@
 export const constants = {
   INCREASE: "INCREASE",
-  DECREASE: "DECREASE"
+  DECREASE: "DECREASE",
+  ADD_IMAGE: "ADD_IMAGE"
 }
