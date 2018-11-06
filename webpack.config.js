@@ -1,14 +1,17 @@
 var webpack = require('webpack');
 var path = require('path');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'app/dist');
 const APP_DIR = path.resolve(__dirname, 'app/src');
 
 var config = {
-  entry: APP_DIR + '/index.jsx',
+  entry: {
+    app: APP_DIR + '/index.jsx'
+  },
   output: {
     path: BUILD_DIR,
-    filename: 'build.js'
+    filename: 'build_.js'
   },
   module: {
     rules: [{
@@ -35,7 +38,16 @@ var config = {
         }]
       }
     ]
-  }
+  },
+  plugins: [
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      server: {
+        baseDir: [BUILD_DIR]
+      }
+    })
+  ]
 };
 
 module.exports = config;
