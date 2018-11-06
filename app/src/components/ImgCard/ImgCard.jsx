@@ -1,5 +1,6 @@
 import React from 'react';
 import './ImgCard.less';
+import AddCounter from '../../hoc/AddCounter.jsx'
 
 
 /* 
@@ -9,17 +10,13 @@ import './ImgCard.less';
  * */
 class ImgCard extends React.Component {
     render() {
-        const {onIncrease,onDecrease,item} = this.props;
+        const {item} = this.props;
         return (
-            <div className="imgCard" onClick = {() => {onIncrease(item.id, item.count + 1)}}
-                onContextMenu={() => onDecrease(event, item.id, ((item.count - 1) < 0) ? 0 : item.count - 1)}>
+            <div className="imgCard">
                 <img className="imgCard__img" src={'img/' + item.img} alt = "..."/>
-                <div className="imgCard__count">
-                    <div className = "clickCounter">{item.count}</div>
-                </div>
             </div>
         );
     }
 }
 
-export default ImgCard;
+export default AddCounter(ImgCard);
