@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Post from "./Post";
 
-export default class PostList extends React.Component
+export default class PostsList extends React.Component
 {
     constructor(props)
     {
@@ -21,7 +21,7 @@ export default class PostList extends React.Component
     render()
     {
         if(!this.state.posts.length){
-            return null; //Посты еще не загрузились
+            return null; 
         }
 
         let posts = this.state.posts.map((post, index) => {
@@ -29,7 +29,7 @@ export default class PostList extends React.Component
         });
 
         return (<div>
-            <h1>Посты</h1>
+            <h1>Блог</h1>
             {posts}
         </div>);
     }

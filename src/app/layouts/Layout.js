@@ -27,7 +27,9 @@ export default class Layout extends React.Component
             <div>
                 <Menu brand={this.brand}>
                     <MenuItem href="/" active={this.isActive('/')}>Главная</MenuItem>
-                    <MenuItem href="/posts" active={this.isActive('/posts')}>Посты</MenuItem>
+                    <MenuItem href="/users" active={this.isActive('/users')}>Пользователи</MenuItem>
+                    <MenuItem href="/posts" active={this.isActive('/posts')}>Блог</MenuItem>
+                    <MenuItem href="/comments" active={this.isActive('/comments')}>Комментарии</MenuItem>
                     <MenuItem href="/pagenotfound" active={this.isActive('/pagenotfound')}>Страница с ошибкой</MenuItem>
                 </Menu>
             <div className="container">
