@@ -72,11 +72,15 @@
 
 	var _Users2 = _interopRequireDefault(_Users);
 
-	var _Posts = __webpack_require__(275);
+	var _UserCard = __webpack_require__(275);
+
+	var _UserCard2 = _interopRequireDefault(_UserCard);
+
+	var _Posts = __webpack_require__(277);
 
 	var _Posts2 = _interopRequireDefault(_Posts);
 
-	var _Comments = __webpack_require__(278);
+	var _Comments = __webpack_require__(280);
 
 	var _Comments2 = _interopRequireDefault(_Comments);
 
@@ -90,7 +94,11 @@
 	        _reactRouter.Route,
 	        { path: '/', component: _Layout2.default },
 	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Main2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'users', component: _Users2.default }),
+	        _react2.default.createElement(
+	            _reactRouter.Route,
+	            { path: 'users', component: _Users2.default },
+	            _react2.default.createElement(_reactRouter.Route, { path: ':userId', component: _UserCard2.default })
+	        ),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'posts', component: _Posts2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'comments', component: _Comments2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '*', component: _PageNotFound2.default })
@@ -27222,6 +27230,11 @@
 	                        _MenuItem2.default,
 	                        { href: '/comments', active: this.isActive('/comments') },
 	                        '\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438'
+	                    ),
+	                    _react2.default.createElement(
+	                        _MenuItem2.default,
+	                        { href: '/blog', active: this.isActive('/blog') },
+	                        '\u0411\u043B\u043E\u0433'
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -27506,7 +27519,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	exports.default = undefined;
 
@@ -27529,22 +27542,22 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Users = function (_React$Component) {
-	    _inherits(Users, _React$Component);
+	  _inherits(Users, _React$Component);
 
-	    function Users() {
-	        _classCallCheck(this, Users);
+	  function Users() {
+	    _classCallCheck(this, Users);
 
-	        return _possibleConstructorReturn(this, (Users.__proto__ || Object.getPrototypeOf(Users)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Users.__proto__ || Object.getPrototypeOf(Users)).apply(this, arguments));
+	  }
+
+	  _createClass(Users, [{
+	    key: 'render',
+	    value: function render() {
+	      !this.props.children ? _react2.default.createElement(_UsersList2.default, null) : this.props.children;
 	    }
+	  }]);
 
-	    _createClass(Users, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(_UsersList2.default, null);
-	        }
-	    }]);
-
-	    return Users;
+	  return Users;
 	}(_react2.default.Component);
 
 	exports.default = Users;
@@ -29124,6 +29137,161 @@
 /* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(184);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var User = function (_React$Component) {
+	    _inherits(User, _React$Component);
+
+	    function User() {
+	        _classCallCheck(this, User);
+
+	        return _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).apply(this, arguments));
+	    }
+
+	    _createClass(User, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'panel panel-default' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-heading' },
+	                    _react2.default.createElement(
+	                        'h3',
+	                        null,
+	                        _react2.default.createElement(
+	                            _reactRouter.Link,
+	                            { to: '/users/' + this.props.id },
+	                            this.props.username
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-body' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        this.props.name
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        this.props.email
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        this.props.website
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        this.props.phone
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return User;
+	}(_react2.default.Component);
+
+	exports.default = User;
+
+/***/ }),
+/* 275 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _axios = __webpack_require__(249);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _UserFullCard = __webpack_require__(276);
+
+	var _UserFullCard2 = _interopRequireDefault(_UserFullCard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var UserCard = function (_React$Component) {
+	  _inherits(UserCard, _React$Component);
+
+	  function UserCard(props) {
+	    _classCallCheck(this, UserCard);
+
+	    var _this = _possibleConstructorReturn(this, (UserCard.__proto__ || Object.getPrototypeOf(UserCard)).call(this, props));
+
+	    _this.state = {
+	      user: null
+	    };
+
+	    _axios2.default.get('https://jsonplaceholder.typicode.com/users' + _this.props.params.userId).then(function (response) {
+	      return _this.setstate({ user: response.data });
+	    });
+	    return _this;
+	  }
+
+	  _createClass(UserCard, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_UserFullCard2.default, { user: this.state })
+	      );
+	    }
+	  }]);
+
+	  return UserCard;
+	}(_react2.default.Component());
+
+	exports.default = UserCard;
+
+/***/ }),
+/* 276 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -29145,16 +29313,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var User = function (_React$Component) {
-	    _inherits(User, _React$Component);
+	var UserFullCard = function (_React$Component) {
+	    _inherits(UserFullCard, _React$Component);
 
-	    function User() {
-	        _classCallCheck(this, User);
+	    function UserFullCard() {
+	        _classCallCheck(this, UserFullCard);
 
-	        return _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (UserFullCard.__proto__ || Object.getPrototypeOf(UserFullCard)).apply(this, arguments));
 	    }
 
-	    _createClass(User, [{
+	    _createClass(UserFullCard, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -29192,18 +29360,64 @@
 	                        null,
 	                        this.props.phone
 	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "panel panel-default" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "panel-heading" },
+	                        _react2.default.createElement(
+	                            "h3",
+	                            null,
+	                            "Addresss:"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "panel-body" },
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            this.props.address.street
+	                        ),
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            this.props.address.suite
+	                        ),
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            this.props.address.city
+	                        ),
+	                        _react2.default.createElement(
+	                            "p",
+	                            null,
+	                            this.props.address.zipcode
+	                        )
+	                    )
 	                )
 	            );
 	        }
 	    }]);
 
-	    return User;
+	    return UserFullCard;
 	}(_react2.default.Component);
 
-	exports.default = User;
+	/*
+	    "address": {
+	      "street": "Kulas Light",
+	      "suite": "Apt. 556",
+	      "city": "Gwenborough",
+	      "zipcode": "92998-3874",
+	*/
+
+
+	exports.default = UserFullCard;
 
 /***/ }),
-/* 275 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29219,7 +29433,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _PostsList = __webpack_require__(276);
+	var _PostsList = __webpack_require__(278);
 
 	var _PostsList2 = _interopRequireDefault(_PostsList);
 
@@ -29253,7 +29467,7 @@
 	exports.default = Posts;
 
 /***/ }),
-/* 276 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29275,7 +29489,7 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _Post = __webpack_require__(277);
+	var _Post = __webpack_require__(279);
 
 	var _Post2 = _interopRequireDefault(_Post);
 
@@ -29335,7 +29549,7 @@
 	exports.default = PostsList;
 
 /***/ }),
-/* 277 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29408,7 +29622,7 @@
 	exports.default = Post;
 
 /***/ }),
-/* 278 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29424,7 +29638,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CommentsList = __webpack_require__(279);
+	var _CommentsList = __webpack_require__(281);
 
 	var _CommentsList2 = _interopRequireDefault(_CommentsList);
 
@@ -29458,7 +29672,7 @@
 	exports.default = Comments;
 
 /***/ }),
-/* 279 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29480,7 +29694,7 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _Comment = __webpack_require__(280);
+	var _Comment = __webpack_require__(282);
 
 	var _Comment2 = _interopRequireDefault(_Comment);
 
@@ -29540,7 +29754,7 @@
 	exports.default = CommentsList;
 
 /***/ }),
-/* 280 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
