@@ -7,6 +7,7 @@ export default class Post extends React.Component
         return (<div className="panel panel-default">
             <div className="panel-heading">
                 <h3>{this.props.title}</h3>
+                <h5 className = "text-muted">User id:{this.props.userId}</h5>
             </div>
             <div className="panel-body">
                 <p>{this.props.body}</p>

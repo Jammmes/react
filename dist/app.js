@@ -27216,17 +27216,12 @@
 	                    _react2.default.createElement(
 	                        _MenuItem2.default,
 	                        { href: '/posts', active: this.isActive('/posts') },
-	                        '\u0411\u043B\u043E\u0433'
+	                        '\u041F\u043E\u0441\u0442\u044B'
 	                    ),
 	                    _react2.default.createElement(
 	                        _MenuItem2.default,
 	                        { href: '/comments', active: this.isActive('/comments') },
 	                        '\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438'
-	                    ),
-	                    _react2.default.createElement(
-	                        _MenuItem2.default,
-	                        { href: '/pagenotfound', active: this.isActive('/pagenotfound') },
-	                        '\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u0441 \u043E\u0448\u0438\u0431\u043A\u043E\u0439'
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -29386,6 +29381,12 @@
 	                        "h3",
 	                        null,
 	                        this.props.title
+	                    ),
+	                    _react2.default.createElement(
+	                        "h5",
+	                        { className: "text-muted" },
+	                        "User id:",
+	                        this.props.userId
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -29585,6 +29586,12 @@
 	                        "h3",
 	                        null,
 	                        this.props.name
+	                    ),
+	                    _react2.default.createElement(
+	                        "h5",
+	                        { className: "text-muted" },
+	                        "Post id:",
+	                        this.props.postId
 	                    )
 	                ),
 	                _react2.default.createElement(

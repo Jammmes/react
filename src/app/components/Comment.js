@@ -7,6 +7,7 @@ export default class Comment extends React.Component
         return (<div className="panel panel-default">
             <div className="panel-heading">
                 <h3>{this.props.name}</h3>
+                <h5 className="text-muted">Post id:{this.props.postId}</h5>
             </div>
             <div className="panel-body">
                 <p>{this.props.email}</p>
