@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class Comment extends React.Component
 {
@@ -7,10 +8,13 @@ export default class Comment extends React.Component
         return (<div className="panel panel-default">
             <div className="panel-heading">
                 <h3>{this.props.name}</h3>
-                <h5 className="text-muted">Post id:{this.props.postId}</h5>
+                <Link className="text-muted" to={`/posts/${ this.props.postId }`}>
+                    Показать пост
+                </Link>
+                <h5 className="text-muted">E-mail:{this.props.email}</h5>
             </div>
             <div className="panel-body">
-                <p>{this.props.email}</p>
+                <p>{`comment id: ${this.props.id}`}</p>
                 <p>{this.props.body}</p>
             </div>
         </div>);

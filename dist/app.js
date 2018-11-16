@@ -80,7 +80,11 @@
 
 	var _Posts2 = _interopRequireDefault(_Posts);
 
-	var _Comments = __webpack_require__(280);
+	var _PostCard = __webpack_require__(280);
+
+	var _PostCard2 = _interopRequireDefault(_PostCard);
+
+	var _Comments = __webpack_require__(283);
 
 	var _Comments2 = _interopRequireDefault(_Comments);
 
@@ -99,7 +103,11 @@
 	            { path: 'users', component: _Users2.default },
 	            _react2.default.createElement(_reactRouter.Route, { path: ':userId', component: _UserCard2.default })
 	        ),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'posts', component: _Posts2.default }),
+	        _react2.default.createElement(
+	            _reactRouter.Route,
+	            { path: 'posts', component: _Posts2.default },
+	            _react2.default.createElement(_reactRouter.Route, { path: ':postId', component: _PostCard2.default })
+	        ),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'comments', component: _Comments2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '*', component: _PageNotFound2.default })
 	    )
@@ -27230,11 +27238,6 @@
 	                        _MenuItem2.default,
 	                        { href: '/comments', active: this.isActive('/comments') },
 	                        '\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438'
-	                    ),
-	                    _react2.default.createElement(
-	                        _MenuItem2.default,
-	                        { href: '/blog', active: this.isActive('/blog') },
-	                        '\u0411\u043B\u043E\u0433'
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -27553,7 +27556,7 @@
 	  _createClass(Users, [{
 	    key: 'render',
 	    value: function render() {
-	      !this.props.children ? _react2.default.createElement(_UsersList2.default, null) : this.props.children;
+	      return !this.props.children ? _react2.default.createElement(_UsersList2.default, null) : this.props.children;
 	    }
 	  }]);
 
@@ -29266,8 +29269,8 @@
 	      user: null
 	    };
 
-	    _axios2.default.get('https://jsonplaceholder.typicode.com/users' + _this.props.params.userId).then(function (response) {
-	      return _this.setstate({ user: response.data });
+	    _axios2.default.get('https://jsonplaceholder.typicode.com/users/' + _this.props.params.userId).then(function (response) {
+	      _this.setState({ user: response.data });
 	    });
 	    return _this;
 	  }
@@ -29278,13 +29281,13 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_UserFullCard2.default, { user: this.state })
+	        this.state.user && _react2.default.createElement(_UserFullCard2.default, { user: this.state.user })
 	      );
 	    }
 	  }]);
 
 	  return UserCard;
-	}(_react2.default.Component());
+	}(_react2.default.Component);
 
 	exports.default = UserCard;
 
@@ -29292,7 +29295,7 @@
 /* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -29304,6 +29307,8 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(184);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29323,79 +29328,102 @@
 	    }
 
 	    _createClass(UserFullCard, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
+	            var user = this.props.user;
+	            var address = user.address,
+	                company = user.company;
+
+
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "panel panel-default" },
+	                'div',
+	                { className: 'panel panel-default' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "panel-heading" },
+	                    'div',
+	                    { className: 'panel-heading' },
 	                    _react2.default.createElement(
-	                        "h3",
+	                        'h3',
 	                        null,
-	                        this.props.username
+	                        user.username
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: 'users', className: 'text-muted' },
+	                        '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0432\u0441\u0435\u0445 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439'
 	                    )
 	                ),
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "panel-body" },
+	                    'div',
+	                    { className: 'panel-body' },
 	                    _react2.default.createElement(
-	                        "p",
+	                        'h4',
 	                        null,
-	                        this.props.name
+	                        'Main info:'
 	                    ),
 	                    _react2.default.createElement(
-	                        "p",
+	                        'p',
 	                        null,
-	                        this.props.email
+	                        user.name
 	                    ),
 	                    _react2.default.createElement(
-	                        "p",
+	                        'p',
 	                        null,
-	                        this.props.website
+	                        user.email
 	                    ),
 	                    _react2.default.createElement(
-	                        "p",
+	                        'p',
 	                        null,
-	                        this.props.phone
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    "div",
-	                    { className: "panel panel-default" },
-	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "panel-heading" },
-	                        _react2.default.createElement(
-	                            "h3",
-	                            null,
-	                            "Addresss:"
-	                        )
+	                        user.website
 	                    ),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "panel-body" },
-	                        _react2.default.createElement(
-	                            "p",
-	                            null,
-	                            this.props.address.street
-	                        ),
-	                        _react2.default.createElement(
-	                            "p",
-	                            null,
-	                            this.props.address.suite
-	                        ),
-	                        _react2.default.createElement(
-	                            "p",
-	                            null,
-	                            this.props.address.city
-	                        ),
-	                        _react2.default.createElement(
-	                            "p",
-	                            null,
-	                            this.props.address.zipcode
-	                        )
+	                        'p',
+	                        null,
+	                        user.phone
+	                    ),
+	                    _react2.default.createElement(
+	                        'h4',
+	                        null,
+	                        'Address:'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        address.street
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        address.suite
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        address.city
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        address.zipcode
+	                    ),
+	                    _react2.default.createElement(
+	                        'h4',
+	                        null,
+	                        'Company:'
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        company.name
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        company.catchPhrase
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        company.bs
 	                    )
 	                )
 	            );
@@ -29404,15 +29432,6 @@
 
 	    return UserFullCard;
 	}(_react2.default.Component);
-
-	/*
-	    "address": {
-	      "street": "Kulas Light",
-	      "suite": "Apt. 556",
-	      "city": "Gwenborough",
-	      "zipcode": "92998-3874",
-	*/
-
 
 	exports.default = UserFullCard;
 
@@ -29457,7 +29476,7 @@
 	    _createClass(Posts, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(_PostsList2.default, null);
+	            return !this.props.children ? _react2.default.createElement(_PostsList2.default, null) : this.props.children;
 	        }
 	    }]);
 
@@ -29536,7 +29555,7 @@
 	                _react2.default.createElement(
 	                    'h1',
 	                    null,
-	                    '\u0411\u043B\u043E\u0433'
+	                    '\u041F\u043E\u0441\u0442\u044B'
 	                ),
 	                posts
 	            );
@@ -29550,6 +29569,274 @@
 
 /***/ }),
 /* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(184);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Post = function (_React$Component) {
+	    _inherits(Post, _React$Component);
+
+	    function Post() {
+	        _classCallCheck(this, Post);
+
+	        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
+	    }
+
+	    _createClass(Post, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'panel panel-default' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-heading' },
+	                    _react2.default.createElement(
+	                        'h3',
+	                        null,
+	                        _react2.default.createElement(
+	                            _reactRouter.Link,
+	                            { to: '/posts/' + this.props.id },
+	                            this.props.title
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'text-muted' },
+	                        '\u0418\u0414 \u043F\u043E\u0441\u0442\u0430: ' + this.props.id
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { className: 'text-muted', to: '/users/' + this.props.userId },
+	                        '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0430\u0432\u0442\u043E\u0440\u0430 \u043F\u043E\u0441\u0442\u0430 (\u0418\u0434 \u0430\u0432\u0442\u043E\u0440\u0430: ' + this.props.userId + ')'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-body' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        this.props.body
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Post;
+	}(_react2.default.Component);
+
+	exports.default = Post;
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _PostFullCard = __webpack_require__(281);
+
+	var _PostFullCard2 = _interopRequireDefault(_PostFullCard);
+
+	var _axios = __webpack_require__(249);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PostCard = function (_React$Component) {
+	  _inherits(PostCard, _React$Component);
+
+	  function PostCard(props) {
+	    _classCallCheck(this, PostCard);
+
+	    var _this = _possibleConstructorReturn(this, (PostCard.__proto__ || Object.getPrototypeOf(PostCard)).call(this, props));
+
+	    _this.state = {
+	      comments: [],
+	      post: null,
+	      user: null
+	    };
+
+	    _axios2.default.all([_axios2.default.get("https://jsonplaceholder.typicode.com/posts/" + _this.props.params.postId), _axios2.default.get("https://jsonplaceholder.typicode.com/comments")]).then(_axios2.default.spread(function (postResponse, commentResponse) {
+	      _axios2.default.get("https://jsonplaceholder.typicode.com/users/" + postResponse.data.userId).then(function (userResponse) {
+	        _this.setState({
+	          post: postResponse.data,
+	          user: userResponse.data,
+	          comments: commentResponse.data.filter(function (item) {
+	            return +item.postId === +_this.props.params.postId;
+	          })
+	        });
+	      });
+	    }));
+	    return _this;
+	  }
+
+	  _createClass(PostCard, [{
+	    key: 'render',
+	    value: function render() {
+	      var _state = this.state,
+	          post = _state.post,
+	          user = _state.user,
+	          comments = _state.comments;
+
+
+	      if (!post || !user || !comments) {
+	        return null;
+	      };
+	      return _react2.default.createElement(_PostFullCard2.default, { comments: comments, user: user, post: post });
+	    }
+	  }]);
+
+	  return PostCard;
+	}(_react2.default.Component);
+
+	exports.default = PostCard;
+
+/***/ }),
+/* 281 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(184);
+
+	var _CommentLight = __webpack_require__(282);
+
+	var _CommentLight2 = _interopRequireDefault(_CommentLight);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PostFullCard = function (_React$Component) {
+	    _inherits(PostFullCard, _React$Component);
+
+	    function PostFullCard() {
+	        _classCallCheck(this, PostFullCard);
+
+	        return _possibleConstructorReturn(this, (PostFullCard.__proto__ || Object.getPrototypeOf(PostFullCard)).apply(this, arguments));
+	    }
+
+	    _createClass(PostFullCard, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props,
+	                comments = _props.comments,
+	                user = _props.user,
+	                post = _props.post;
+
+	            var commentsBlock = comments.map(function (comment) {
+	                return _react2.default.createElement(_CommentLight2.default, _extends({ key: comment.id }, comment));
+	            });
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'panel panel-default' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-heading' },
+	                    _react2.default.createElement(
+	                        'h2',
+	                        null,
+	                        '\u041F\u043E\u0441\u0442 # ' + post.id
+	                    ),
+	                    _react2.default.createElement(
+	                        'h3',
+	                        null,
+	                        post.title
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { className: 'text-muted', to: '/users/' + user.id },
+	                        '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0430\u0432\u0442\u043E\u0440\u0430 \u043F\u043E\u0441\u0442\u0430 (\u0418\u0434 \u0430\u0432\u0442\u043E\u0440\u0430: ' + user.id + ')'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel-body' },
+	                    _react2.default.createElement(
+	                        'p',
+	                        null,
+	                        post.body
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement(
+	                        'h3',
+	                        null,
+	                        '\u0412\u0441\u0435 \u043A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438 \u043A \u044D\u0442\u043E\u043C\u0443 \u043F\u043E\u0441\u0442\u0443:'
+	                    ),
+	                    commentsBlock
+	                )
+	            );
+	        }
+	    }]);
+
+	    return PostFullCard;
+	}(_react2.default.Component);
+
+	exports.default = PostFullCard;
+
+/***/ }),
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29573,16 +29860,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Post = function (_React$Component) {
-	    _inherits(Post, _React$Component);
+	var CommentLight = function (_React$Component) {
+	    _inherits(CommentLight, _React$Component);
 
-	    function Post() {
-	        _classCallCheck(this, Post);
+	    function CommentLight() {
+	        _classCallCheck(this, CommentLight);
 
-	        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (CommentLight.__proto__ || Object.getPrototypeOf(CommentLight)).apply(this, arguments));
 	    }
 
-	    _createClass(Post, [{
+	    _createClass(CommentLight, [{
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -29592,15 +29879,20 @@
 	                    "div",
 	                    { className: "panel-heading" },
 	                    _react2.default.createElement(
-	                        "h3",
+	                        "h5",
 	                        null,
-	                        this.props.title
+	                        this.props.name
 	                    ),
 	                    _react2.default.createElement(
-	                        "h5",
+	                        "div",
 	                        { className: "text-muted" },
-	                        "User id:",
-	                        this.props.userId
+	                        "E-mail:",
+	                        this.props.email
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-muted" },
+	                        "comment id: " + this.props.id
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -29616,13 +29908,13 @@
 	        }
 	    }]);
 
-	    return Post;
+	    return CommentLight;
 	}(_react2.default.Component);
 
-	exports.default = Post;
+	exports.default = CommentLight;
 
 /***/ }),
-/* 280 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29638,7 +29930,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CommentsList = __webpack_require__(281);
+	var _CommentsList = __webpack_require__(284);
 
 	var _CommentsList2 = _interopRequireDefault(_CommentsList);
 
@@ -29672,7 +29964,7 @@
 	exports.default = Comments;
 
 /***/ }),
-/* 281 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29694,7 +29986,7 @@
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _Comment = __webpack_require__(282);
+	var _Comment = __webpack_require__(285);
 
 	var _Comment2 = _interopRequireDefault(_Comment);
 
@@ -29754,10 +30046,10 @@
 	exports.default = CommentsList;
 
 /***/ }),
-/* 282 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -29769,6 +30061,8 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(184);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29788,36 +30082,41 @@
 	    }
 
 	    _createClass(Comment, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "panel panel-default" },
+	                'div',
+	                { className: 'panel panel-default' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "panel-heading" },
+	                    'div',
+	                    { className: 'panel-heading' },
 	                    _react2.default.createElement(
-	                        "h3",
+	                        'h3',
 	                        null,
 	                        this.props.name
 	                    ),
 	                    _react2.default.createElement(
-	                        "h5",
-	                        { className: "text-muted" },
-	                        "Post id:",
-	                        this.props.postId
+	                        _reactRouter.Link,
+	                        { className: 'text-muted', to: '/posts/' + this.props.postId },
+	                        '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u043F\u043E\u0441\u0442'
+	                    ),
+	                    _react2.default.createElement(
+	                        'h5',
+	                        { className: 'text-muted' },
+	                        'E-mail:',
+	                        this.props.email
 	                    )
 	                ),
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "panel-body" },
+	                    'div',
+	                    { className: 'panel-body' },
 	                    _react2.default.createElement(
-	                        "p",
+	                        'p',
 	                        null,
-	                        this.props.email
+	                        'comment id: ' + this.props.id
 	                    ),
 	                    _react2.default.createElement(
-	                        "p",
+	                        'p',
 	                        null,
 	                        this.props.body
 	                    )

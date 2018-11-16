@@ -3,7 +3,7 @@ import axios from 'axios';
 import UserFullCard from '../components/UserFullCard';
 
 
-export default class UserCard extends React.Component() {
+export default class UserCard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,15 +11,15 @@ export default class UserCard extends React.Component() {
       user: null
     };
 
-    axios.get(`https://jsonplaceholder.typicode.com/users${this.props.params.userId}`)
-      .then((response) => this.setstate({ user: response.data }));
+    axios.get(`https://jsonplaceholder.typicode.com/users/${this.props.params.userId}`)
+      .then((response) => {this.setState({ user: response.data })});
   }
 
   render() {
     return (
-        <div>
-            <UserFullCard user = { this.state }/>
-        </div >
+      <div>
+        {(this.state.user) && <UserFullCard user={this.state.user} />}
+      </div >
     )
   }
 

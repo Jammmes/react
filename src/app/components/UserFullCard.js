@@ -1,38 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class UserFullCard extends React.Component
 {
     render()
     {
+        const {user} = this.props;
+        const {address, company} = user;
+
         return (<div className="panel panel-default">
             <div className="panel-heading">
-                <h3>{this.props.username}</h3>
+                <h3>{user.username}</h3>
+                <Link to = "users" className="text-muted">
+                    Показать всех пользователей
+                </Link>
             </div>
             <div className="panel-body">
-                <p>{this.props.name}</p>
-                <p>{this.props.email}</p>
-                <p>{this.props.website}</p>
-                <p>{this.props.phone}</p>
-            </div>
-            <div className="panel panel-default">
-                <div className="panel-heading">
-                    <h3>Addresss:</h3>
-                </div>
-                <div className="panel-body">
-                    <p>{this.props.address.street}</p>
-                    <p>{this.props.address.suite}</p>
-                    <p>{this.props.address.city}</p>
-                    <p>{this.props.address.zipcode}</p>
-                </div>
+                <h4>Main info:</h4>
+                <p>{user.name}</p>
+                <p>{user.email}</p>
+                <p>{user.website}</p>
+                <p>{user.phone}</p>
+                <h4>Address:</h4>
+                <p>{address.street}</p>
+                <p>{address.suite}</p>
+                <p>{address.city}</p>
+                <p>{address.zipcode}</p>
+                <h4>Company:</h4>
+                <p>{company.name}</p>
+                <p>{company.catchPhrase}</p>
+                <p>{company.bs}</p>
             </div>
         </div>);
     }
 }
-
-/*
-    "address": {
-      "street": "Kulas Light",
-      "suite": "Apt. 556",
-      "city": "Gwenborough",
-      "zipcode": "92998-3874",
-*/

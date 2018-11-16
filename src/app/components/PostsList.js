@@ -29,7 +29,7 @@ export default class PostsList extends React.Component
         });
 
         return (<div>
-            <h1>Блог</h1>
+            <h1>Посты</h1>
             {posts}
         </div>);
     }

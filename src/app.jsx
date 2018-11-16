@@ -8,9 +8,8 @@ import PageNotFound from './app/pages/PageNotFound';
 import Users from './app/pages/Users';
 import UserCard from './app/pages/UserCard';
 import Posts from './app/pages/Posts';
+import PostCard from './app/pages/PostCard';
 import Comments from './app/pages/Comments';
-
-
 
 const app = document.getElementById('app');
 ReactDOM.render(
@@ -20,7 +19,9 @@ ReactDOM.render(
             <Route path="users" component={Users}>
                 <Route path = ":userId" component = {UserCard} />
             </Route> 
-            <Route path="posts" component={Posts} />
+            <Route path="posts" component={Posts}>
+                <Route path = ":postId" component = {PostCard}/>
+            </Route>
             <Route path="comments" component={Comments} />
             <Route path="*" component={PageNotFound} />
         </Route>

@@ -5,6 +5,9 @@ export default class Posts extends React.Component
 {
     render()
     {
-        return (<PostsList/>);
+        return (
+        (!this.props.children)?
+                <PostsList /> : this.props.children
+        );
     }
 }
