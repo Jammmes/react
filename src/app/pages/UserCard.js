@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import UserFullCard from '../components/UserFullCard';
+import UserFullCard from '../components/users/UserFullCard';
 
 
 export default class UserCard extends React.Component {

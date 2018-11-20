@@ -1,6 +1,6 @@
 import React from 'react';
-import Menu from '../components/Menu';
-import MenuItem from '../components/MenuItem';
+import Menu from '../components/menu/Menu';
+import MenuItem from '../components/menu/MenuItem';
 
 
 export default class Layout extends React.Component

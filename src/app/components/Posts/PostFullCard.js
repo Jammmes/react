@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import CommentLight from './CommentLight';
+import CommentLight from '../comments/CommentLight';
 
 export default class PostFullCard extends React.Component
 {

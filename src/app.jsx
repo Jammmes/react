@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
+// Связка с redux
+import {Provider} from 'react-redux';
+import store from './app/store/store';
+
 import Layout from './app/layouts/Layout';
 import Main from './app/pages/Main';
 import PageNotFound from './app/pages/PageNotFound';
@@ -13,17 +17,19 @@ import Comments from './app/pages/Comments';
 
 const app = document.getElementById('app');
 ReactDOM.render(
-    <Router history={browserHistory}>
-        <Route path="/" component={Layout}>
-            <IndexRoute component={Main} />
-            <Route path="users" component={Users}>
-                <Route path = ":userId" component = {UserCard} />
-            </Route> 
-            <Route path="posts" component={Posts}>
-                <Route path = ":postId" component = {PostCard}/>
+    <Provider store = {store}>
+        <Router history={browserHistory}>
+            <Route path="/" component={Layout}>
+                <IndexRoute component={Main} />
+                <Route path="users" component={Users}>
+                    <Route path = ":userId" component = {UserCard} />
+                </Route> 
+                <Route path="posts" component={Posts}>
+                    <Route path = ":postId" component = {PostCard}/>
+                </Route>
+                <Route path="comments" component={Comments} />
+                <Route path="*" component={PageNotFound} />
             </Route>
-            <Route path="comments" component={Comments} />
-            <Route path="*" component={PageNotFound} />
-        </Route>
-    </Router>,
+        </Router>
+    </Provider>,
 app);

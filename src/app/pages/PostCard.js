@@ -1,5 +1,5 @@
 import React from 'react';
-import PostFullCard from '../components/PostFullCard';
+import PostFullCard from '../components/Posts/PostFullCard';
 import axios from 'axios';
 
 
